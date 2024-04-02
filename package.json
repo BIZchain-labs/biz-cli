@@ -1,0 +1,27 @@
+{
+  "name": "biz-cli",
+  "version": "1.0.0",
+  "description": "A cli application for interacting with Biz-Smart chain ",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BIZchain-labs/biz-cli.git"
+  },
+  "keywords": [
+    "Biz",
+    "bizchain",
+    "validator"
+  ],
+  "author": "https://github.com/nnlgsakib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BIZchain-labs/biz-cli/issues"
+  },
+  "homepage": "https://github.com/BIZchain-labs/biz-cli#readme",
+  "dependencies": {
+    "ethers": "^6.11.1"
+  }
+}
