@@ -2,7 +2,8 @@
 const { program } = require('commander');
 const { version, getBlockNumber } = require('./commands/versioning/version');
 const { rpc } = require('./commands/config/config');
-const { getValidators } = require('./commands/validator/getvals'); // Correct import path
+const { getValidators } = require('./commands/validator/getvals'); 
+const {fillValidatorDetails} = require('./commands/validator/getvaldump');
 
 let selectedRPC;
 
@@ -45,6 +46,20 @@ Promise.all([import('figlet'), import('chalk')]).then(([figlet, chalk]) => {
       getValidators(selectedRPC).then(() => {
       });
     });
+    
+  validator
+  .command('get-config')
+  .option('--name <name>', 'Validator name')
+  .option('--feeaddress <address>', 'Biz Validator address for fees')
+  .option('--moniker <moniker>', 'Moniker value')
+  .option('--identity <identity>', 'Identity value')
+  .option('--website <website>', 'Website URL')
+  .option('--email <email>', 'Email address')
+  .option('--details <details>', 'Details')
+  .option('--privatkey <privatkey>', 'Private key')
+  .action(({ name, feeaddress, moniker, identity, website, email, details,privatkey }) => {
+    fillValidatorDetails({ name, feeAddress: feeaddress, moniker, identity, website, email, details,privatkey });
+  });
 
   program.parse(process.argv);
 });
